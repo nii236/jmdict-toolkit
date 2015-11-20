@@ -4,11 +4,11 @@ import (
 	"bytes"
 	"encoding/xml"
 	"fmt"
-	"io/ioutil"
 
 	"github.com/davecgh/go-spew/spew"
 	"github.com/jinzhu/gorm"
 	_ "github.com/mattn/go-sqlite3"
+	"github.com/nii236/jmdict/examples"
 	"github.com/nii236/jmdict/models"
 )
 
@@ -54,21 +54,28 @@ func parseJMDict() {
 	jmd := &models.JMdict{}
 	db.NewRecord(jmd)
 	db.Create(jmd)
-	data, err := ioutil.ReadFile("data/JMDict_e")
+
+	// data, err := ioutil.ReadFile("data/JMDict_e")
 	if err != nil {
 		fmt.Println(err)
+		return
 	}
-	d := xml.NewDecoder(bytes.NewReader([]byte(data)))
+
+	// d := xml.NewDecoder(bytes.NewReader([]byte(data)))
+	testData := examples.Entries
+	d := xml.NewDecoder(bytes.NewReader([]byte(testData)))
 	d.Entity = models.Entities
 
-	err2 := d.Decode(&jmd)
-	if err2 != nil {
-		fmt.Printf("error: %v", err2)
+	err = d.Decode(&jmd)
+
+	if err != nil {
+		fmt.Printf("error: %v", err)
 		return
 	}
+	spew.Dump(jmd.Entries[0])
 	for _, v := range jmd.Entries {
-		spew.Dump(v)
-		return
+		fmt.Printf("Added %v to db\n", v.EntrySequence)
+
 		// db.Create(&v)
 	}
 }

@@ -24,14 +24,14 @@ type KEle struct {
 type KeInf struct {
 	gorm.Model
 	KEleID int    `sql:"index"`
-	Value  string `xml:"ke_inf"`
+	Value  string `xml:",innerxml"`
 }
 
 // KePri is the Kanji Element Priority
 type KePri struct {
 	gorm.Model
 	KEleID int    `sql:"index"`
-	Value  string `xml:"ke_pri"`
+	Value  string `xml:",innerxml"`
 }
 
 // REle (The reading element) typically contains the valid readings
@@ -54,21 +54,21 @@ type REle struct {
 type ReRestr struct {
 	gorm.Model
 	REleID int    `sql:"index"`
-	Value  string `xml:"re_restr"`
+	Value  string `xml:",innerxml"`
 }
 
 // ReInf gives the info of the reading element
 type ReInf struct {
 	gorm.Model
 	REleID int    `sql:"index"`
-	Value  string `xml:"re_inf"`
+	Value  string `xml:",innerxml"`
 }
 
 // RePri gives the priority of the reading element
 type RePri struct {
 	gorm.Model
 	REleID int    `sql:"index"`
-	Value  string `xml:"re_pri"`
+	Value  string `xml:",innerxml"`
 }
 
 // Sense is the element that will record the translational equivalent
@@ -95,63 +95,63 @@ type Sense struct {
 type StagK struct {
 	gorm.Model
 	SenseID int    `sql:"index"`
-	Value   string `xml:"stagk"`
+	Value   string `xml:",innerxml"`
 }
 
 //StagR means RestrictedToReading
 type StagR struct {
 	gorm.Model
 	SenseID int    `sql:"index"`
-	Value   string `xml:"stagr"`
+	Value   string `xml:",innerxml"`
 }
 
 //POS means Part of Speech
 type POS struct {
 	gorm.Model
 	SenseID int    `sql:"index"`
-	Value   string `xml:"pos"`
+	Value   string `xml:",innerxml"`
 }
 
 //XRef means CrossReference
 type XRef struct {
 	gorm.Model
 	SenseID int    `sql:"index"`
-	Value   string `xml:"xref"`
+	Value   string `xml:",innerxml"`
 }
 
 //Ant means Antonym
 type Ant struct {
 	gorm.Model
 	SenseID int    `sql:"index"`
-	Value   string `xml:"ant"`
+	Value   string `xml:",innerxml"`
 }
 
 //Field means field
 type Field struct {
 	gorm.Model
 	SenseID int    `sql:"index"`
-	Value   string `xml:"field"`
+	Value   string `xml:",innerxml"`
 }
 
 //Misc means miscellaneous
 type Misc struct {
 	gorm.Model
 	SenseID int    `sql:"index"`
-	Value   string `xml:"misc"`
+	Value   string `xml:",innerxml"`
 }
 
 //SInf means Sense Info
 type SInf struct {
 	gorm.Model
 	SenseID int    `sql:"index"`
-	Value   string `xml:"s_inf"`
+	Value   string `xml:",innerxml"`
 }
 
 //Dial means Dialect
 type Dial struct {
 	gorm.Model
 	SenseID int    `sql:"index"`
-	Value   string `xml:"dial"`
+	Value   string `xml:",innerxml"`
 }
 
 // Gloss is within each sense and contains
@@ -160,7 +160,7 @@ type Dial struct {
 // may be omitted in entries which are purely for a cross-reference.
 type Gloss struct {
 	gorm.Model
-	Value   string `xml:",innerxml"`
+	Meaning string `xml:",innerxml"`
 	SenseID int32  `sql:"index"`
 	Lang    string `xml:"xml:lang,attr"`
 	Gender  string `xml:"g_gend,attr"`
@@ -171,7 +171,7 @@ type Gloss struct {
 type Pri struct {
 	gorm.Model
 	GlossID  int    `sql:"index"`
-	Priority string `xml:"pri"`
+	Priority string `xml:",innerxml"`
 }
 
 // LSource records the information about the source
