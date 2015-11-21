@@ -4,11 +4,10 @@ import (
 	"bytes"
 	"encoding/xml"
 	"fmt"
+	"io/ioutil"
 
-	"github.com/davecgh/go-spew/spew"
 	"github.com/jinzhu/gorm"
 	_ "github.com/mattn/go-sqlite3"
-	"github.com/nii236/jmdict/examples"
 	"github.com/nii236/jmdict/models"
 )
 
@@ -28,26 +27,26 @@ func parseJMDict() {
 		fmt.Println(err)
 	}
 
-	db.AutoMigrate(&models.KEle{},
-		&models.KeInf{},
-		&models.KePri{},
-		&models.REle{},
-		&models.ReRestr{},
-		&models.ReInf{},
-		&models.RePri{},
+	db.AutoMigrate(&models.KanjiElement{},
+		&models.KanjiElementInfo{},
+		&models.KanjiElementPriority{},
+		&models.ReadingElement{},
+		&models.ReadingElementRestriction{},
+		&models.ReadingElementInfo{},
+		&models.ReadingElementPriority{},
 		&models.Sense{},
-		&models.StagK{},
-		&models.StagR{},
-		&models.POS{},
-		&models.XRef{},
-		&models.Ant{},
+		&models.SenseTagKanji{},
+		&models.SenseTagReading{},
+		&models.PartOfSpeech{},
+		&models.CrossReference{},
+		&models.Antonym{},
 		&models.Field{},
 		&models.Misc{},
-		&models.SInf{},
-		&models.Dial{},
-		&models.Gloss{},
-		&models.Pri{},
-		&models.LSource{},
+		&models.SenseInfo{},
+		&models.Dialect{},
+		&models.Glossary{},
+		&models.Priority{},
+		&models.LanguageSource{},
 		&models.Entry{},
 		&models.JMdict{})
 
@@ -55,15 +54,15 @@ func parseJMDict() {
 	db.NewRecord(jmd)
 	db.Create(jmd)
 
-	// data, err := ioutil.ReadFile("data/JMDict_e")
+	data, err := ioutil.ReadFile("data/JMDict_e")
+	// data := examples.Entries2
+
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	// d := xml.NewDecoder(bytes.NewReader([]byte(data)))
-	testData := examples.Entries
-	d := xml.NewDecoder(bytes.NewReader([]byte(testData)))
+	d := xml.NewDecoder(bytes.NewReader([]byte(data)))
 	d.Entity = models.Entities
 
 	err = d.Decode(&jmd)
@@ -72,10 +71,17 @@ func parseJMDict() {
 		fmt.Printf("error: %v", err)
 		return
 	}
-	spew.Dump(jmd.Entries[0])
 	for _, v := range jmd.Entries {
+		// spew.Dump(v)
 		fmt.Printf("Added %v to db\n", v.EntrySequence)
-
-		// db.Create(&v)
+		db.Create(&v)
 	}
+}
+
+func writeToSQLite() {
+
+}
+
+func writeToCayley() {
+
 }

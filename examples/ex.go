@@ -1,7 +1,26 @@
 package examples
 
 //Entries is a string of example entries
+
 var Entries = `
+<JMdict>
+    <entry>
+        <ent_seq>1000000</ent_seq>
+        <r_ele>
+            <reb>ヽ</reb>
+        </r_ele>
+        <r_ele>
+            <reb>くりかえし</reb>
+        </r_ele>
+        <sense>
+            <pos>&n;</pos>
+            <gloss>repetition mark in katakana</gloss>
+        </sense>
+    </entry>
+</JMdict>
+`
+
+var Entries2 = `
 <JMdict>
   <entry>
     <ent_seq>1000080</ent_seq>
