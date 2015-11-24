@@ -30,7 +30,7 @@ gzip -d JMdict_e.gz
 
 Run the Go app from the project root.
 ```
-cd..
+cd ..
 go run main.go
 ```
 Enjoy the sweet sweet dictionary.
