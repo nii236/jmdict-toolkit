@@ -24,6 +24,7 @@ func main() {
 
 func getModel() {
 	db, err := gorm.Open("sqlite3", "gorm.db")
+
 	if err != nil {
 		fmt.Println("Error: ", err)
 	}
