@@ -28,7 +28,7 @@ func main() {
 				cli.StringFlag{
 					Name:  "input, i",
 					Usage: "Path to the input JMDICT file",
-					Value: "data/JMdict_e",
+					Value: "data/JMdict_e.gz",
 				},
 			},
 			Usage:  "Parse JMDICT file into SQLite",

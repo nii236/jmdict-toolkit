@@ -3,3 +3,5 @@ gorm.db*
 bolt.db
 .vscode
 jmdict
+node_modules
+dist

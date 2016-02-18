@@ -12,21 +12,12 @@ var _ = API("jmdict", func() {
 	Host("localhost:8080")
 })
 
-var _ = Resource("J->E", func() {
-	BasePath("/je")
+var _ = Resource("Translate", func() {
+	BasePath("/translate")
 	Action("translate", func() {
 		Description("Translate a Japanese word to English")
-		Routing(POST)
-	})
-	Response(OK)
-	Response(NotFound)
-})
-
-var _ = Resource("E->J", func() {
-	BasePath("/ej")
-	Action("translate", func() {
-		Description("Translate an English word to Japanese")
-		Routing(POST)
+		Routing(POST(""))
+		Payload(Word)
 	})
 	Response(OK)
 	Response(NotFound)
