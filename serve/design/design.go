@@ -15,7 +15,7 @@ var _ = API("jmdict", func() {
 var _ = Resource("Translate", func() {
 	BasePath("/translate")
 	Action("translate", func() {
-		Description("Translate a Japanese word to English")
+		Description("Translate a word between Japanese and English")
 		Routing(POST(""))
 		Payload(Word)
 	})
