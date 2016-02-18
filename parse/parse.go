@@ -36,7 +36,7 @@ func Dictionary(path string) {
 }
 
 func writeToSQLite(jmd models.JMdict) {
-	db, err := gorm.Open("sqlite3", "gorm.db")
+	db, err := gorm.Open("sqlite3", "data/gorm.db")
 	if err != nil {
 		fmt.Println(err)
 	}

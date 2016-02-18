@@ -10,3 +10,4 @@ import:
 - package: github.com/jinzhu/gorm
 - package: github.com/mattn/go-sqlite3
 - package: github.com/codegangsta/cli
+- package: github.com/secsy/goftp

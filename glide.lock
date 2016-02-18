@@ -1,5 +1,5 @@
-hash: ee6457ae17984e7a08760ed71ea0dc5ef2e2a6f96aaab5131eb2f716de1dbf03
-updated: 2016-02-18T15:51:25.347283702+08:00
+hash: cddbab114608f7df8afaae74c1041299c2a2ad6ad782ff937e253386b4e8bc8b
+updated: 2016-02-18T16:48:04.728312812+08:00
 imports:
 - name: github.com/badgerodon/peg
   version: 9e5f7f4d07ca576562618c23e8abadda278b684f
@@ -50,6 +50,8 @@ imports:
   version: d1b4d8ef0e0e4b088c8328c95ca63ab9ebd8fc9d
 - name: github.com/russross/blackfriday
   version: 17bb7999de6cfb791d4f8986cc00b3309b370cdb
+- name: github.com/secsy/goftp
+  version: 79d5c14ec4c5513e353e9917216a1c9da5cbadaf
 - name: github.com/shurcooL/sanitized_anchor_name
   version: 8e87604bec3c645a4eeaee97dfec9f25811ff20d
 - name: github.com/syndtr/goleveldb

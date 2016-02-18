@@ -9,7 +9,7 @@ import (
 
 func writeToCayley() {
 	// Initialize the database
-	path := "./bolt.db"
+	path := "data/bolt.db"
 	graph.InitQuadStore("bolt", path, nil)
 	// Open and use the database
 	store, err := cayley.NewGraph("bolt", path, nil)
