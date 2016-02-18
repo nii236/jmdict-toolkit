@@ -2,3 +2,4 @@ data
 gorm.db
 bolt.db
 .vscode
+jmdict
