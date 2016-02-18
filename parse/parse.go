@@ -8,13 +8,14 @@ import (
 
 	"github.com/davecgh/go-spew/spew"
 	"github.com/jinzhu/gorm"
+	_ "github.com/mattn/go-sqlite3"
 	"github.com/nii236/jmdict/parse/models"
 )
 
 //Dictionary takes a filepath to a JMDICT XML and parses it into a SQLite database
-func Dictionary() {
+func Dictionary(path string) {
 	jmd := &models.JMdict{}
-	data, err := ioutil.ReadFile("data/JMDict_e")
+	data, err := ioutil.ReadFile(path)
 
 	if err != nil {
 		fmt.Println(err)
@@ -36,12 +37,12 @@ func Dictionary() {
 
 func writeToSQLite(jmd models.JMdict) {
 	db, err := gorm.Open("sqlite3", "gorm.db")
-	db.NewRecord(jmd)
-	db.Create(jmd)
-
 	if err != nil {
 		fmt.Println(err)
 	}
+
+	db.NewRecord(jmd)
+	db.Create(jmd)
 
 	db.AutoMigrate(&models.KanjiElement{},
 		&models.KanjiElementInfo{},

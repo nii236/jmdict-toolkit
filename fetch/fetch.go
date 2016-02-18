@@ -12,8 +12,8 @@ type config struct {
 
 //Dictionary runs a request for the latest JMDICT and places it in an
 //appropriate location for the parse and serve commands
-func Dictionary() {
-	currentConfig := config{"ftp://ftp.monash.edu.au/pub/nihongo/JMdict_e.gz"}
+func Dictionary(url string) {
+	currentConfig := config{url}
 	fmt.Println("Fetching JMDICT from ", currentConfig.url)
 
 	out, err := os.Create("JMdict_e.gz")

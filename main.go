@@ -28,6 +28,7 @@ func main() {
 				cli.StringFlag{
 					Name:  "input, i",
 					Usage: "Path to the input JMDICT file",
+					Value: "data/JMdict_e",
 				},
 			},
 			Usage:  "Parse JMDICT file into SQLite",
@@ -39,6 +40,7 @@ func main() {
 				cli.StringFlag{
 					Name:  "url, u",
 					Usage: "HTTP path to the JMDICT file",
+					Value: "ftp://ftp.monash.edu.au/pub/nihongo/JMdict_e.gz",
 				},
 			},
 			Usage:  "Fetches the JMDICT file from the internet",
@@ -50,6 +52,7 @@ func main() {
 				cli.StringFlag{
 					Name:  "port, p",
 					Usage: "Port to serve dictionary from",
+					Value: "8080",
 				},
 			},
 			Usage:  "Serves a REST API of the parse SQLite JMDICT",
@@ -62,15 +65,15 @@ func main() {
 
 //CmdParse executes the parse command which will parse the JMDICT XML into SQLite
 func CmdParse(ctx *cli.Context) {
-	parse.Dictionary()
+	parse.Dictionary(ctx.String("input"))
 }
 
 //CmdFetch executes the fetch command which will fetch the JMDICT online
 func CmdFetch(ctx *cli.Context) {
-	fetch.Dictionary()
+	fetch.Dictionary(ctx.String("url"))
 }
 
 //CmdServe executes the serve command which will host a REST API of JMDICT
 func CmdServe(ctx *cli.Context) {
-	serve.Dictionary()
+	serve.Dictionary(ctx.String("port"))
 }

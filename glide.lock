@@ -1,5 +1,5 @@
 hash: ee6457ae17984e7a08760ed71ea0dc5ef2e2a6f96aaab5131eb2f716de1dbf03
-updated: 2016-02-18T13:29:12.191846692+08:00
+updated: 2016-02-18T15:51:25.347283702+08:00
 imports:
 - name: github.com/badgerodon/peg
   version: 9e5f7f4d07ca576562618c23e8abadda278b684f
@@ -46,7 +46,6 @@ imports:
   version: 1bb0d1c1a25ed393d8feb09bab039b2b1b1fbced
 - name: github.com/remyoudompheng/bigfft
   version: a8e77ddfb93284b9d58881f597c820a2875af336
-  repo: https://github.com/remyoudompheng/bigfft
 - name: github.com/robertkrimen/otto
   version: d1b4d8ef0e0e4b088c8328c95ca63ab9ebd8fc9d
 - name: github.com/russross/blackfriday
