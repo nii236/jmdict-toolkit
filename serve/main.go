@@ -16,9 +16,9 @@ func main() {
 	service.Use(middleware.LogRequest())
 	service.Use(middleware.Recover())
 
-	// Mount "Translate" controller
-	c := NewTranslateController(service)
-	app.MountTranslateController(service, c)
+	// Mount "Word" controller
+	c := NewWordController(service)
+	app.MountWordController(service, c)
 	// Mount Swagger spec provider controller
 	swagger.MountController(service)
 
