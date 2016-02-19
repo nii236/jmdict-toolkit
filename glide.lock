@@ -1,5 +1,5 @@
 hash: cddbab114608f7df8afaae74c1041299c2a2ad6ad782ff937e253386b4e8bc8b
-updated: 2016-02-18T22:19:45.559470459+08:00
+updated: 2016-02-19T09:21:48.694295+08:00
 imports:
 - name: github.com/badgerodon/peg
   version: 9e5f7f4d07ca576562618c23e8abadda278b684f
@@ -37,7 +37,7 @@ imports:
 - name: github.com/mattn/go-sqlite3
   version: c5aee9649735e8dadac55eb968ccebd9fa29a881
 - name: github.com/onsi/ginkgo
-  version: 07d85e6b10c4289c7d612f9b13f45ba36f66d55b
+  version: be259a120bdbe4dd5a3352edac586871aa8589e8
 - name: github.com/onsi/gomega
   version: c72df929b80ef4930aaa75d5e486887ff2f3e06a
 - name: github.com/pborman/uuid

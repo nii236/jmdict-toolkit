@@ -2,6 +2,6 @@ data
 gorm.db*
 bolt.db
 .vscode
-jmdict
+jmdict-toolkit
 node_modules
 dist
