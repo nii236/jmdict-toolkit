@@ -1,4 +1,4 @@
-package serve
+package main
 
 import (
 	"fmt"
@@ -8,28 +8,19 @@ import (
 	"github.com/nii236/jmdict-toolkit/serve/app"
 )
 
-type language int
-
-const (
-	english language = 1 + iota
-	japanese
-)
-
-// TranslateController implements theTranslate resource.
-type TranslateController struct {
+// WordController implements theWord resource.
+type WordController struct {
 	goa.Controller
 }
 
-// NewTranslateController creates a Translate controller.
-func NewTranslateController(service goa.Service) app.TranslateController {
-	return &TranslateController{Controller: service.NewController("Translate")}
+// NewWordController creates a Word controller.
+func NewWordController(service goa.Service) app.WordController {
+	return &WordController{Controller: service.NewController("Word")}
 }
 
 // Translate runs the translate action.
-func (c *TranslateController) Translate(ctx *app.TranslateTranslateContext) error {
+func (c *WordController) Translate(ctx *app.TranslateWordContext) error {
 	fmt.Println(ctx.Value("Name"))
-
-	// detectEJ(ctx.AllParams().Get("word"))
 	return nil
 }
 

@@ -14,14 +14,14 @@ package app
 
 import "github.com/goadesign/goa"
 
-// TranslateController is the controller interface for the Translate actions.
-type TranslateController interface {
+// WordController is the controller interface for the Word actions.
+type WordController interface {
 	goa.Controller
-	Translate(*TranslateTranslateContext) error
+	Translate(*TranslateWordContext) error
 }
 
-// MountTranslateController "mounts" a Translate resource controller on the given service.
-func MountTranslateController(service goa.Service, ctrl TranslateController) {
+// MountWordController "mounts" a Word resource controller on the given service.
+func MountWordController(service goa.Service, ctrl WordController) {
 	// Setup encoders and decoders. This is idempotent and is done by each MountXXX function.
 	service.SetEncoder(goa.GobEncoderFactory(), false, "application/gob", "application/x-gob")
 	service.SetEncoder(goa.JSONEncoderFactory(), true, "application/json")
@@ -34,20 +34,20 @@ func MountTranslateController(service goa.Service, ctrl TranslateController) {
 	var h goa.Handler
 	mux := service.ServeMux()
 	h = func(c *goa.Context) error {
-		ctx, err := NewTranslateTranslateContext(c)
-		ctx.Payload = ctx.RawPayload().(*TranslateTranslatePayload)
+		ctx, err := NewTranslateWordContext(c)
+		ctx.Payload = ctx.RawPayload().(*TranslateWordPayload)
 		if err != nil {
 			return goa.NewBadRequestError(err)
 		}
 		return ctrl.Translate(ctx)
 	}
-	mux.Handle("POST", "/translate", ctrl.HandleFunc("Translate", h, unmarshalTranslateTranslatePayload))
-	service.Info("mount", "ctrl", "Translate", "action", "Translate", "route", "POST /translate")
+	mux.Handle("POST", "/translate", ctrl.HandleFunc("Translate", h, unmarshalTranslateWordPayload))
+	service.Info("mount", "ctrl", "Word", "action", "Translate", "route", "POST /translate")
 }
 
-// unmarshalTranslateTranslatePayload unmarshals the request body.
-func unmarshalTranslateTranslatePayload(ctx *goa.Context) error {
-	payload := &TranslateTranslatePayload{}
+// unmarshalTranslateWordPayload unmarshals the request body.
+func unmarshalTranslateWordPayload(ctx *goa.Context) error {
+	payload := &TranslateWordPayload{}
 	if err := ctx.Service().DecodeRequest(ctx, payload); err != nil {
 		return err
 	}

@@ -2,23 +2,23 @@ package design
 
 import (
 	. "github.com/goadesign/goa/design"
-	. "github.com/goadesign/goa/design/apidsl"
+	apidsl "github.com/goadesign/goa/design/apidsl"
 )
 
-var _ = API("jmdict", func() {
-	Title("JMDict REST API")
-	Description("This is a REST API hosting a J-E Dictionary")
-	Scheme("http")
-	Host("localhost:8080")
+var _ = apidsl.API("jmdict", func() {
+	apidsl.Title("JMDict REST API")
+	apidsl.Description("This is a REST API hosting a J-E Dictionary")
+	apidsl.Scheme("http")
+	apidsl.Host("localhost:8080")
 })
 
-var _ = Resource("Translate", func() {
-	BasePath("/translate")
-	Action("translate", func() {
-		Description("Translate a word between Japanese and English")
-		Routing(POST(""))
-		Payload(Word)
+var _ = apidsl.Resource("Word", func() {
+	apidsl.BasePath("/translate")
+	apidsl.Action("translate", func() {
+		apidsl.Description("Translate a word between Japanese and English")
+		apidsl.Routing(apidsl.POST(""))
+		apidsl.Payload(Word)
 	})
-	Response(OK)
-	Response(NotFound)
+	apidsl.Response(apidsl.OK)
+	apidsl.Response(apidsl.NotFound)
 })

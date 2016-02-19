@@ -95,9 +95,9 @@ func RegisterCommands(app *cobra.Command, c *client.Client) {
 		Use:   "translate",
 		Short: "Translate a word between Japanese and English",
 	}
-	tmp1 := new(TranslateTranslateCommand)
+	tmp1 := new(TranslateWordCommand)
 	sub = &cobra.Command{
-		Use:   "Translate",
+		Use:   "Word",
 		Short: "",
 		RunE:  func(cmd *cobra.Command, args []string) error { return tmp1.Run(c, args) },
 	}

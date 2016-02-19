@@ -9,14 +9,14 @@ import (
 	"net/url"
 )
 
-// TranslateTranslatePayload is the data structure used to initialize the Translate translate request body.
-type TranslateTranslatePayload struct {
+// TranslateWordPayload is the data structure used to initialize the Word translate request body.
+type TranslateWordPayload struct {
 	// Word to be translated
 	Word string `json:"word" xml:"word"`
 }
 
 // Translate a word between Japanese and English
-func (c *Client) TranslateTranslate(path string, payload *TranslateTranslatePayload) (*http.Response, error) {
+func (c *Client) TranslateWord(path string, payload *TranslateWordPayload) (*http.Response, error) {
 	var body io.Reader
 	b, err := json.Marshal(payload)
 	if err != nil {
