@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/goadesign/goa"
-	"github.com/nii236/jmdict/app"
+	"github.com/nii236/jmdict-toolkit/app"
 )
 
 // TranslateController implements theTranslate resource.

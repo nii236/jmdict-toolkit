@@ -11,7 +11,7 @@ import (
 	"github.com/davecgh/go-spew/spew"
 	"github.com/jinzhu/gorm"
 	_ "github.com/mattn/go-sqlite3"
-	"github.com/nii236/jmdict/parse/models"
+	"github.com/nii236/jmdict-toolkit/parse/models"
 )
 
 //Dictionary takes a filepath to a zipped JMDICT XML and parses it into a SQLite database

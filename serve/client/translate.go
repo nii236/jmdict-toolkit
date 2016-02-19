@@ -11,11 +11,11 @@ import (
 
 // TranslateTranslatePayload is the data structure used to initialize the Translate translate request body.
 type TranslateTranslatePayload struct {
-	// Operand name
-	Name string `json:"name" xml:"name"`
+	// Word to be translated
+	Word string `json:"word" xml:"word"`
 }
 
-// Translate a Japanese word to English
+// Translate a word between Japanese and English
 func (c *Client) TranslateTranslate(path string, payload *TranslateTranslatePayload) (*http.Response, error) {
 	var body io.Reader
 	b, err := json.Marshal(payload)

@@ -3,8 +3,8 @@ package serve
 import (
 	"github.com/goadesign/goa"
 	"github.com/goadesign/middleware"
-	"github.com/nii236/jmdict/serve/app"
-	"github.com/nii236/jmdict/serve/swagger"
+	"github.com/nii236/jmdict-toolkit/serve/app"
+	"github.com/nii236/jmdict-toolkit/serve/swagger"
 )
 
 func main() {

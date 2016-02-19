@@ -5,9 +5,9 @@ import (
 	"os"
 
 	"github.com/codegangsta/cli"
-	"github.com/nii236/jmdict/fetch"
-	"github.com/nii236/jmdict/parse"
-	"github.com/nii236/jmdict/serve"
+	"github.com/nii236/jmdict-toolkit/fetch"
+	"github.com/nii236/jmdict-toolkit/parse"
+	"github.com/nii236/jmdict-toolkit/serve"
 )
 
 func main() {

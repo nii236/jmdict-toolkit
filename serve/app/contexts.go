@@ -3,8 +3,8 @@
 //
 // Generated with goagen v0.0.1, command line:
 // $ goagen
-// --out=$(GOPATH)/src/github.com/nii236/jmdict/serve
-// --design=github.com/nii236/jmdict/serve/design
+// --out=$(GOPATH)/src/github.com/nii236/jmdict-toolkit/serve
+// --design=github.com/nii236/jmdict-toolkit/serve/design
 // --pkg=app
 //
 // The content of this file is auto-generated, DO NOT MODIFY
@@ -30,14 +30,14 @@ func NewTranslateTranslateContext(c *goa.Context) (*TranslateTranslateContext, e
 
 // TranslateTranslatePayload is the Translate translate action payload.
 type TranslateTranslatePayload struct {
-	// Operand name
-	Name string `json:"name" xml:"name"`
+	// Word to be translated
+	Word string `json:"word" xml:"word"`
 }
 
 // Validate runs the validation rules defined in the design.
 func (payload *TranslateTranslatePayload) Validate() (err error) {
-	if payload.Name == "" {
-		err = goa.MissingAttributeError(`raw`, "name", err)
+	if payload.Word == "" {
+		err = goa.MissingAttributeError(`raw`, "word", err)
 	}
 
 	return

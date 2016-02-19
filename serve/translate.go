@@ -5,7 +5,7 @@ import (
 	"regexp"
 
 	"github.com/goadesign/goa"
-	"github.com/nii236/jmdict/serve/app"
+	"github.com/nii236/jmdict-toolkit/serve/app"
 )
 
 type language int

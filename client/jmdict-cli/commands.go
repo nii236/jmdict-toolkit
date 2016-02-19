@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/nii236/jmdict/client"
+	"github.com/nii236/jmdict-toolkit/client"
 	"github.com/spf13/cobra"
 )
 

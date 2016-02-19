@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/nii236/jmdict/serve/client"
+	"github.com/nii236/jmdict-toolkit/serve/client"
 	"github.com/spf13/cobra"
 	"io/ioutil"
 	"net/http"
@@ -93,7 +93,7 @@ func RegisterCommands(app *cobra.Command, c *client.Client) {
 	var command, sub *cobra.Command
 	command = &cobra.Command{
 		Use:   "translate",
-		Short: "Translate a Japanese word to English",
+		Short: "Translate a word between Japanese and English",
 	}
 	tmp1 := new(TranslateTranslateCommand)
 	sub = &cobra.Command{
