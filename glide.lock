@@ -1,5 +1,5 @@
 hash: cddbab114608f7df8afaae74c1041299c2a2ad6ad782ff937e253386b4e8bc8b
-updated: 2016-02-19T09:21:48.694295+08:00
+updated: 2016-02-22T15:07:52.83197443+08:00
 imports:
 - name: github.com/badgerodon/peg
   version: 9e5f7f4d07ca576562618c23e8abadda278b684f
@@ -20,7 +20,7 @@ imports:
   subpackages:
   - proto
 - name: github.com/golang/protobuf
-  version: 127091107ff5f822298f1faa7487ffcf578adcf6
+  version: 3c84672111d91bb5ac31719e112f9f7126a0e26e
 - name: github.com/google/cayley
   version: 792fe5d42c4dd4d967c3db2e30bd380fcdfb3151
   subpackages:
@@ -37,9 +37,9 @@ imports:
 - name: github.com/mattn/go-sqlite3
   version: c5aee9649735e8dadac55eb968ccebd9fa29a881
 - name: github.com/onsi/ginkgo
-  version: be259a120bdbe4dd5a3352edac586871aa8589e8
+  version: ac3d45ddd7ef5c4d7fc4d037b615a81f4d67981e
 - name: github.com/onsi/gomega
-  version: c72df929b80ef4930aaa75d5e486887ff2f3e06a
+  version: a1094b2db2d4845621602c667bd4ccf09834544e
 - name: github.com/pborman/uuid
   version: ca53cad383cad2479bbba7f7a1a05797ec1386e4
 - name: github.com/peterh/liner
@@ -51,7 +51,7 @@ imports:
 - name: github.com/russross/blackfriday
   version: 17bb7999de6cfb791d4f8986cc00b3309b370cdb
 - name: github.com/secsy/goftp
-  version: 79d5c14ec4c5513e353e9917216a1c9da5cbadaf
+  version: 848bd83f73185175b43f6093f1639af3b463b889
 - name: github.com/shurcooL/sanitized_anchor_name
   version: 8e87604bec3c645a4eeaee97dfec9f25811ff20d
 - name: github.com/syndtr/goleveldb
