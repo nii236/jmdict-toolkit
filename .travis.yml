@@ -3,7 +3,7 @@ go:
   - 1.6
 script:
   - go build
-  - ./jmdict serve &
+  - ./jmdict-toolkit serve &
   - go test $(go list ./... | grep -v vendor)
 install:
   - go get -u github.com/Masterminds/glide
