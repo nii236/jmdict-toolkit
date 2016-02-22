@@ -42,6 +42,11 @@ func main() {
 					Usage: "HTTP path to the JMDICT file",
 					Value: "ftp://ftp.monash.edu.au/pub/nihongo/JMdict_e.gz",
 				},
+				cli.StringFlag{
+					Name:  "outfile, o",
+					Usage: "Location to save the dictionary",
+					Value: "data/JMdict_e.gz",
+				},
 			},
 			Usage:  "Fetches the JMDICT file from the internet",
 			Action: CmdFetch,
@@ -70,7 +75,7 @@ func CmdParse(ctx *cli.Context) {
 
 //CmdFetch executes the fetch command which will fetch the JMDICT online
 func CmdFetch(ctx *cli.Context) {
-	fetch.Dictionary(ctx.String("url"))
+	fetch.Dictionary(ctx.String("url"), ctx.String("outfile"))
 }
 
 //CmdServe executes the serve command which will host a REST API of JMDICT
