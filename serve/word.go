@@ -30,7 +30,7 @@ func (c *WordController) Translate(ctx *app.TranslateWordContext) error {
 		return nil
 	}
 	if !english {
-		ctx.Respond(200, "Success")
+		ctx.WriteHeader(200)
 		result := translateWord(ctx.Payload.Word)
 		fmt.Println(result)
 	}

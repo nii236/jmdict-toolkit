@@ -13,7 +13,7 @@ func main() {
 
 	// Setup middleware
 	service.Use(middleware.RequestID())
-	service.Use(middleware.LogRequest())
+	service.Use(middleware.LogRequest(true))
 	service.Use(middleware.Recover())
 
 	// Mount "Word" controller

@@ -12,7 +12,11 @@
 
 package app
 
-import "github.com/goadesign/goa"
+import (
+	"github.com/goadesign/goa"
+	"golang.org/x/net/context"
+	"net/http"
+)
 
 // WordController is the controller interface for the Word actions.
 type WordController interface {
@@ -33,27 +37,29 @@ func MountWordController(service goa.Service, ctrl WordController) {
 	// Setup endpoint handler
 	var h goa.Handler
 	mux := service.ServeMux()
-	h = func(c *goa.Context) error {
-		ctx, err := NewTranslateWordContext(c)
-		ctx.Payload = ctx.RawPayload().(*TranslateWordPayload)
+	h = func(ctx context.Context, rw http.ResponseWriter, req *http.Request) error {
+		rctx, err := NewTranslateWordContext(ctx)
 		if err != nil {
 			return goa.NewBadRequestError(err)
 		}
-		return ctrl.Translate(ctx)
+		if rawPayload := goa.Request(ctx).Payload; rawPayload != nil {
+			rctx.Payload = rawPayload.(*TranslateWordPayload)
+		}
+		return ctrl.Translate(rctx)
 	}
 	mux.Handle("POST", "/translate", ctrl.HandleFunc("Translate", h, unmarshalTranslateWordPayload))
-	service.Info("mount", "ctrl", "Word", "action", "Translate", "route", "POST /translate")
+	goa.Info(goa.RootContext, "mount", goa.KV{"ctrl", "Word"}, goa.KV{"action", "Translate"}, goa.KV{"route", "POST /translate"})
 }
 
-// unmarshalTranslateWordPayload unmarshals the request body.
-func unmarshalTranslateWordPayload(ctx *goa.Context) error {
-	payload := &TranslateWordPayload{}
-	if err := ctx.Service().DecodeRequest(ctx, payload); err != nil {
+// unmarshalTranslateWordPayload unmarshals the request body into the context request data Payload field.
+func unmarshalTranslateWordPayload(ctx context.Context, req *http.Request) error {
+	var payload TranslateWordPayload
+	if err := goa.RequestService(ctx).DecodeRequest(req, &payload); err != nil {
 		return err
 	}
 	if err := payload.Validate(); err != nil {
 		return err
 	}
-	ctx.SetPayload(payload)
+	goa.Request(ctx).Payload = &payload
 	return nil
 }
