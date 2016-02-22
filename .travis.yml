@@ -1,9 +1,9 @@
 language: go
 go:
   - 1.6
-script: 
-  - go test
-  - go build
+script:
+  - go run main.go serve &
+  - go test $(go list ./... | grep -v vendor)
 install:
   - go get -u github.com/Masterminds/glide
   - glide install

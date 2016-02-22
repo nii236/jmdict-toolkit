@@ -1,7 +1,6 @@
 package serve_test
 
 import (
-	"encoding/json"
 	"fmt"
 
 	"github.com/nii236/jmdict-toolkit/serve/client"
@@ -24,16 +23,12 @@ var _ = Describe("Word", func() {
 		jsonPayload = `{"word":"日本語"}`
 	})
 	It("Gets an OK response", func() {
-		b, err := json.Marshal(jsonPayload)
-		if err != nil {
-			return
-		}
-		payload := &client.TranslateWordPayload{b}
+		payload := &client.TranslateWordPayload{Word: jsonPayload}
 		resp, err := conn.TranslateWord("http://localhost:8080/translate", payload)
 		if err != nil {
 			fmt.Println(err)
-			return
 		}
+		fmt.Println(resp.StatusCode)
 		Expect(resp.StatusCode).To(Equal(200))
 	})
 })
