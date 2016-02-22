@@ -1,6 +1,7 @@
 package fetch
 
 import (
+	"fmt"
 	"testing"
 
 	. "github.com/onsi/ginkgo"
@@ -14,8 +15,12 @@ func TestCreateFile(t *testing.T) {
 
 var _ = Describe("Fetch", func() {
 	It("Creates an empty file", func() {
-		_, err := createFile("data/test.gz")
-		Expect("data/test.gz").To(BeARegularFile())
+		path := "../data/test.gz"
+		_, err := createFile(path)
+		if err != nil {
+			fmt.Println("ERROR:", err)
+		}
+		Expect(path).To(BeARegularFile())
 		Expect(err).To(BeNil())
 	})
 
