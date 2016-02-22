@@ -13,7 +13,7 @@ import (
 func main() {
 	app := cli.NewApp()
 	app.Name = "Japanese Dictionary Toolkit"
-	app.Usage = "Parses and serves JMDICT"
+	app.Usage = "Fetch, parse and serve JMDICT"
 	app.Version = "0.0.1"
 
 	app.Action = func(c *cli.Context) {

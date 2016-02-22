@@ -13,3 +13,4 @@ import:
 - package: github.com/secsy/goftp
 - package: github.com/goadesign/goa
 - package: github.com/goadesign/middleware
+- package: github.com/goadesign/logging

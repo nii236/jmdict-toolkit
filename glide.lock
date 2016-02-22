@@ -1,5 +1,5 @@
-hash: c0d7ca97c7f138d96aaba64ab6d079442b93a62a288b6c094ee53666cd69e2b4
-updated: 2016-02-22T15:31:00.761834943+08:00
+hash: 2d8cc7c7ebf83664116d35a3b6b4dd7685fc344e60adad50a842594ee5255611
+updated: 2016-02-22T16:18:22.942196364+08:00
 imports:
 - name: bitbucket.org/pkg/inflect
   version: 8961c3750a47
@@ -39,6 +39,8 @@ imports:
   version: f7716cbe52baa25d2e9b0d0da546fcf909fc16b4
 - name: github.com/goadesign/goa
   version: 6b74f26da362a659488ee1fb798db241d43665c3
+- name: github.com/goadesign/logging
+  version: e2a1cc1038c55aec3c20abcae784cfa618b7b9fd
 - name: github.com/goadesign/middleware
   version: e20aaee3cc1ae30f9118902d78deed4e3c14fcee
 - name: github.com/gogo/protobuf
@@ -72,6 +74,8 @@ imports:
   version: c81f9d71af8f8cba1466501d30326b99a4e56c19
 - name: github.com/manveru/faker
   version: c24639bcbebfdad57cd23c7c13aa79c6cd450976
+- name: github.com/mattn/go-colorable
+  version: 9cbef7c35391cca05f15f8181dc0b18bc9736dbb
 - name: github.com/mattn/go-sqlite3
   version: c5aee9649735e8dadac55eb968ccebd9fa29a881
 - name: github.com/matttproud/golang_protobuf_extensions
@@ -146,6 +150,8 @@ imports:
   version: 8611c35ab31c1c28aa903d33cf8b6e44a399b09e
 - name: gopkg.in/gemnasium/logrus-airbrake-hook.v2
   version: 31e6fd4bd5a98d8ee7673d24bc54ec73c31810dd
+- name: gopkg.in/inconshreveable/log15.v2
+  version: b105bd37f74e5d9dc7b6ad7806715c7a2b83fd3f
 - name: gopkg.in/mgo.v2
   version: c6a7dce14133ccac2dcac3793f1d6e2ef048503a
 - name: gopkg.in/tylerb/graceful.v1
