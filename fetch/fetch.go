@@ -15,19 +15,25 @@ type FetcherProvider interface {
 	Fetch(address string, path string, dest *os.File) error
 }
 
-//Fetcher is the standard implementation of the fetch action
-type Fetcher struct {
+//FileCreatorProvider is an interface that creates files
+type FileCreatorProvider interface {
+	CreateFile(path string) (*os.File, error)
 }
+
+//Fetcher is the standard implementation of the fetch action
+type Fetcher struct{}
+
+//FileCreator is the standard implementation of the file creator action
+type FileCreator struct{}
 
 //Dictionary runs a request for the latest JMDICT and places it in an
 //appropriate location for the parse and serve commands
-func Dictionary(address string, filepath string, fetcher FetcherProvider) error {
+func Dictionary(address string, filepath string, fetcher FetcherProvider, fileCreator FileCreatorProvider) error {
 	if len(address) == 0 {
 		return errors.New("Empty address")
 	}
 	u, err := url.Parse(address)
-	fmt.Println("Fetching JMDICT from", u.Host)
-	dest, err := createFile(filepath)
+	dest, err := fileCreator.CreateFile(filepath)
 	defer dest.Close()
 	if err != nil {
 		fmt.Println(err)
@@ -40,16 +46,6 @@ func Dictionary(address string, filepath string, fetcher FetcherProvider) error 
 	}
 
 	return nil
-}
-
-//createFile will create a new file at path
-func createFile(path string) (*os.File, error) {
-	out, err := os.Create(path)
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	return out, err
 }
 
 //Fetch begins the retrieval process for a URL
@@ -69,4 +65,15 @@ func (f *Fetcher) Fetch(address string, path string, dest *os.File) error {
 		return err
 	}
 	return nil
+}
+
+//CreateFile will create a new file at path
+func (fc *FileCreator) CreateFile(path string) (*os.File, error) {
+	out, err := os.Create(path)
+	if err != nil {
+		fmt.Println(err)
+		return nil, err
+	}
+
+	return out, nil
 }

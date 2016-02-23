@@ -76,7 +76,8 @@ func CmdParse(ctx *cli.Context) {
 //CmdFetch executes the fetch command which will fetch the JMDICT online
 func CmdFetch(ctx *cli.Context) {
 	f := &fetch.Fetcher{}
-	fetch.Dictionary(ctx.String("url"), ctx.String("outfile"), f)
+	fc := &fetch.FileCreator{}
+	fetch.Dictionary(ctx.String("url"), ctx.String("outfile"), f, fc)
 }
 
 //CmdServe executes the serve command which will host a REST API of JMDICT
