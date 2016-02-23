@@ -14,7 +14,8 @@ type FetcherProvider interface {
 	Fetch(address string)
 }
 
-type fetchStruct struct {
+//Fetcher is the standard implementation of the fetch action
+type Fetcher struct {
 }
 
 //Dictionary runs a request for the latest JMDICT and places it in an
@@ -58,6 +59,7 @@ func createFile(path string) (*os.File, error) {
 	return out, err
 }
 
-func (fp *fetchStruct) fetch(address string) {
+//Fetch begins the retrieval process for a URL
+func (fp *Fetcher) Fetch(address string) {
 
 }
