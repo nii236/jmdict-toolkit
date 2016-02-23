@@ -53,7 +53,7 @@ func createFile(path string) (*os.File, error) {
 }
 
 //Fetch begins the retrieval process for a URL
-func fetch(address string, path string, dest *os.File) error {
+func (f *Fetcher) Fetch(address string, path string, dest *os.File) error {
 
 	client, err := goftp.Dial(address)
 
