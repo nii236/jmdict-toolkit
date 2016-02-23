@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/nii236/jmdict-toolkit.svg?branch=master)](https://travis-ci.org/nii236/jmdict-toolkit)
+
 This project contains three main tools.
 
 # Go JMDict Fetcher
