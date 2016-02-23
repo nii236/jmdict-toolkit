@@ -1,4 +1,6 @@
 language: go
+before_script:
+  - mkdir data
 go:
   - 1.6
 script:
