@@ -9,9 +9,17 @@ import (
 	"github.com/secsy/goftp"
 )
 
+//FetcherProvider is a URL fetching interface for mocking purposes
+type FetcherProvider interface {
+	Fetch(address string)
+}
+
+type fetchStruct struct {
+}
+
 //Dictionary runs a request for the latest JMDICT and places it in an
 //appropriate location for the parse and serve commands
-func Dictionary(address string, filepath string) {
+func Dictionary(address string, filepath string, fetcher FetcherProvider) {
 	u, err := url.Parse(address)
 	fmt.Println("Fetching JMDICT from", u.Host)
 	dest, err := createFile(filepath)
@@ -48,4 +56,8 @@ func createFile(path string) (*os.File, error) {
 	}
 
 	return out, err
+}
+
+func (fp *fetchStruct) fetch(address string) {
+
 }

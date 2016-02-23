@@ -1,9 +1,10 @@
-package fetch
+package fetch_test
 
 import (
 	"fmt"
 	"testing"
 
+	fetch "github.com/nii236/jmdict-toolkit/fetch"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )
@@ -13,15 +14,19 @@ func TestCreateFile(t *testing.T) {
 	RunSpecs(t, "Fetch")
 }
 
+type mockFetcher struct {
+}
+
+func (mf *mockFetcher) Fetch(address string) {
+	fmt.Println("Hello from MOCKFETCHER")
+}
+
 var _ = Describe("Fetch", func() {
 	It("Creates an empty file", func() {
-		path := "../data/test.gz"
-		_, err := createFile(path)
-		if err != nil {
-			fmt.Println("ERROR:", err)
-		}
-		Expect(path).To(BeARegularFile())
-		Expect(err).To(BeNil())
+		mf := &mockFetcher{}
+		fetch.Dictionary("", "../data/test.gz", mf)
+		// Expect(path).To(BeARegularFile())
+		// Expect(err).To(BeNil())
 	})
 
 })
