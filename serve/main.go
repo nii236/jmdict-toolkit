@@ -26,7 +26,6 @@ func main() {
 	app.MountWordController(service, c)
 	// Mount Swagger spec provider controller
 	swagger.MountController(service)
-
 	// Start service, listen on port 8080
 	service.ListenAndServe(":8080")
 }

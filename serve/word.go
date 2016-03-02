@@ -27,14 +27,17 @@ func NewWordController(service goa.Service) app.WordController {
 func (c *WordController) Translate(ctx *app.TranslateWordContext) error {
 	english, err := detectJapanese(ctx.Payload.Word)
 	if err != nil {
+		fmt.Println(err)
 		return nil
 	}
 	if !english {
+		fmt.Println("Japanese word detected")
 		ctx.WriteHeader(200)
 		result := translateWord(ctx.Payload.Word)
 		fmt.Println(result)
+	} else {
+		fmt.Println("English word detected")
 	}
-	fmt.Println("English word detected")
 	return nil
 }
 
@@ -42,6 +45,7 @@ func detectJapanese(word string) (bool, error) {
 	match, err := regexp.MatchString("[a-z]+", word)
 	if err != nil {
 		fmt.Println(err)
+		return false, err
 	}
 	return match, nil
 }
@@ -49,5 +53,6 @@ func detectJapanese(word string) (bool, error) {
 func translateWord(word string) string {
 	result := db.Where("KanjiElementBase = ?", word)
 	fmt.Println(result)
-	return result.Value.(string)
+	return "PLACEHOLDER TRANSLATION"
+	// return result.Value.(string)
 }
