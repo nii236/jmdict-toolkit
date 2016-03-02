@@ -2,7 +2,7 @@ package: github.com/nii236/jmdict
 import:
 - package: github.com/davecgh/go-spew
   subpackages:
-  - /spew
+  - spew
 - package: github.com/google/cayley
   subpackages:
   - graph
@@ -14,3 +14,7 @@ import:
 - package: github.com/goadesign/goa
 - package: github.com/goadesign/middleware
 - package: github.com/goadesign/logging
+- package: github.com/onsi/ginkgo
+  subpackages:
+  - ginkgo
+- package: github.com/onsi/gomega

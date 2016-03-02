@@ -1,5 +1,5 @@
-hash: ac97ea71e3c705df37145e682902a5c799c85f489c2ecc5b88384d340682540a
-updated: 2016-03-02T15:34:35.811317222+08:00
+hash: f8804cd2c94da4a3122f2175a232979716fadcf0722a6fe46e3c68c45866d654
+updated: 2016-03-02T16:01:32.591445441+08:00
 imports:
 - name: bitbucket.org/pkg/inflect
   version: 8961c3750a47
@@ -50,6 +50,38 @@ imports:
   version: c24639bcbebfdad57cd23c7c13aa79c6cd450976
 - name: github.com/mattn/go-sqlite3
   version: c5aee9649735e8dadac55eb968ccebd9fa29a881
+- name: github.com/onsi/ginkgo
+  version: ac3d45ddd7ef5c4d7fc4d037b615a81f4d67981e
+  subpackages:
+  - ginkgo
+  - config
+  - internal/codelocation
+  - internal/failer
+  - internal/remote
+  - internal/suite
+  - internal/testingtproxy
+  - internal/writer
+  - reporters
+  - reporters/stenographer
+  - types
+  - internal/containernode
+  - internal/leafnodes
+  - internal/spec
+  - internal/specrunner
+- name: github.com/onsi/gomega
+  version: a1094b2db2d4845621602c667bd4ccf09834544e
+  subpackages:
+  - internal/assertion
+  - internal/asyncassertion
+  - internal/testingtsupport
+  - matchers
+  - types
+  - internal/oraclematcher
+  - format
+  - matchers/support/goraph/bipartitegraph
+  - matchers/support/goraph/edge
+  - matchers/support/goraph/node
+  - matchers/support/goraph/util
 - name: github.com/pborman/uuid
   version: ca53cad383cad2479bbba7f7a1a05797ec1386e4
 - name: github.com/secsy/goftp
