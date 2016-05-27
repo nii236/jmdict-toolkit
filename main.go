@@ -7,7 +7,6 @@ import (
 	"github.com/codegangsta/cli"
 	"github.com/nii236/jmdict-toolkit/fetch"
 	"github.com/nii236/jmdict-toolkit/parse"
-	"github.com/nii236/jmdict-toolkit/serve"
 )
 
 func main() {

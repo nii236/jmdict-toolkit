@@ -1,20 +1,6 @@
-package: github.com/nii236/jmdict
+package: github.com/nii236/jmdict-toolkit
 import:
-- package: github.com/davecgh/go-spew
-  subpackages:
-  - spew
-- package: github.com/google/cayley
-  subpackages:
-  - graph
-  - graph/bolt
+- package: github.com/codegangsta/cli
 - package: github.com/jinzhu/gorm
 - package: github.com/mattn/go-sqlite3
-- package: github.com/codegangsta/cli
 - package: github.com/secsy/goftp
-- package: github.com/goadesign/goa
-- package: github.com/goadesign/middleware
-- package: github.com/goadesign/logging
-- package: github.com/onsi/ginkgo
-  subpackages:
-  - ginkgo
-- package: github.com/onsi/gomega

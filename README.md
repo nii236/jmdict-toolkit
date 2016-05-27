@@ -16,27 +16,21 @@ There have been many projects that parse the XML into various formats. This spec
 
 SQLite is used as the main DB but in the future a graph based database will be used for more innovative methods of querying the dictionary ([Cayley](https://github.com/google/cayley)).
 
-# Go JMDict Server
-
-Running `jmdict-toolkit serve` will host a REST API which accepts a POST request in its payload containing a word, run it through the SQLite database and return its definition.
-
-
 # Requirements
 - [Go 1.5 or above](https://golang.org/)
 - [Glide](https://github.com/Masterminds/glide)
+- [SQLite](https://github.com/mattn/go-sqlite3)
 
 # Spinup Instructions
 
 Clone the repo in a responsible location (`$GOPATH/src/github.com/nii236/jmdict-toolkit`)
-```
-cd $GOPATH/src/github.com
-mkdir jmdict-toolkit
-cd jmdict-toolkit
-git clone git@github.com:nii236/jmdict-toolkit.git
-cd jmdict-toolkit
-glide up
-glide rebuild
-go build
+```bash
+$ go get github.com/nii236/jmdict-toolkit
+$ cd $GOPATH/src/github.com/nii236/jmdict-toolkit
+$ glide up
+$ go build
+$ ./jmdict-toolkit fetch
+$ ./jmdict-toolkit parse
 ```
 
 Then run the desired commands described above.

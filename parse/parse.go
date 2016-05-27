@@ -9,7 +9,6 @@ import (
 
 	"compress/gzip"
 
-	"github.com/davecgh/go-spew/spew"
 	"github.com/jinzhu/gorm"
 
 	//This is to add gorm support for sqlite
@@ -88,19 +87,9 @@ func writeToSQLite(jmd models.JMdict) {
 		&models.LanguageSource{},
 		&models.Entry{},
 		&models.JMdict{})
+
 	for _, v := range jmd.Entries {
 		fmt.Printf("Added %v to db\n", v.EntrySequence)
 		db.Create(&v)
 	}
-}
-
-//NOT USED
-func getModel() {
-	db, err := gorm.Open("sqlite3", "gorm.db")
-
-	if err != nil {
-		fmt.Println("Error: ", err)
-	}
-	result := db.First(&models.JMdict{})
-	spew.Dump(result.Value)
 }
